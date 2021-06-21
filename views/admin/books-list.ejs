@@ -1,0 +1,44 @@
+
+    <%- include('../includes/head.ejs') %>
+    <style>
+        th,td{ border : 5px inset rgb(58, 20, 129) }
+    </style>
+    <link rel="stylesheet" href="/css/books.css">
+</head>
+<body>
+    <%- include('../includes/navigation.ejs') %>
+    <main>
+        <div class="grid">
+        <% if (items.length > 0) { %>
+                <% items.forEach((item)=>{ %>
+                    <article class="card product-item">
+                        <header class="card__header">
+                            <h1 class="product__title"><%=item.bookName%></h1>
+                            <h1 class="product__title">By <%=item.bookAuthor%></h1>
+                        </header>
+                        <div class="card__image">
+                            <img src="<%= item.bookImage%>" alt="A Book">
+                        </div>
+                        <div class="card__content">
+                            <h2 class="product__price">Rs <%= item.bookPrice%></h2>
+                            <p class="product__description"><%= item.bookDesc%></p>
+                        </div>
+                        <div class="card__actions">
+                            
+                            <a href="/admin/edit-book/<%= item.id%>?edit=true" class="btn">Edit</a>
+                            <form action="/admin/delete-book" method="post">
+                                <button class="btn">Delete</button>
+                                <input type="hidden" name="bookId" value="<%=item.id%>">
+                            </form>
+                        </div>
+                    </article>
+                     <% }) %>
+            
+        <% } else { %>
+            <h1> No Books available </h1>
+        <% }%>
+        
+            
+        </div>
+    </main>
+    <%- include('../includes/end.ejs') %>

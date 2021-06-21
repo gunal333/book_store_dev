@@ -1,0 +1,33 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/form.css">  
+</head>
+<body><%- include('../includes/navigation.ejs') %>
+    <main>
+        <form class="book-form" action="/admin/add-book" method="POST">
+            <div class="form-control">
+                <h2 class="form-item">Add books</h2>
+            <div class="form-item">
+                <label for="bk-nm">Book name</label>
+                <input type="text" name="bk-name" id="bk-nm" required>
+            </div>
+            <div class="form-item">
+                <label for="bk-author">Book Author</label>
+                <input type="text" name="bk-author" id="bk-author" required>
+            </div>
+            <div class="form-item">
+                <label for="bk-ImageUrl">Book Image Url</label>
+                <input type="text" name="bk-ImageUrl" id="bk-ImageUrl" required>
+            </div>
+            <div class="form-item">
+                <label for="bk-price">Price</label>
+                <input type="number" name="bk-price" id="bk-price" step="0.01" required>
+            </div>
+            <div class="form-item">
+                <label for="bk-desc">Description</label>
+                <textarea name="bk-desc" id="bk-desc" rows="5" required></textarea>
+            </div>
+         <button class="form-item btn">Submit</button>
+        </div> 
+        </form>
+    </main>
+    <%- include('../includes/end.ejs') %>

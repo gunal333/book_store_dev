@@ -1,0 +1,11 @@
+const express = require('express');
+const path = require('path');
+const adminController = require('../controllers/admin');
+const router = express.Router();
+router.get('/books',adminController.getProducts);
+router.get('/add-book',adminController.getAddBooks);
+router.post('/add-book',adminController.postAddBooks);
+router.get('/edit-book/:bookId',adminController.getEditBook);
+router.post('/edit-book',adminController.postEditBook);
+router.post('/delete-book',adminController.deleteBook);
+module.exports = router;
